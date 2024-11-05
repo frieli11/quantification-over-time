@@ -1,0 +1,45 @@
+library(readme)
+library(tensorflow)
+
+ 
+dataname = 'global_covid19_tweets'
+
+i = 0
+repeat {
+  file_name = paste0(format(i), ".csv")  # 构建文件名
+
+  relative_path <- file.path("data", dataname, file_name)
+
+  if(!file.exists(relative_path)) {
+    break
+  }
+  data_t = read.csv(relative_path)
+  # a = data_t["TEXT"]
+  # print(a)
+  data_t[["TEXT"]] <- gsub("\\0", "", data_t[["TEXT"]])
+  # if (is.character(data_t[["TEXT"]])) {
+  #   data_t[["TEXT"]] <- gsub("\0", "", data_t[["TEXT"]])
+  # }
+  
+  wordVec_summaries = undergrad(documentText = cleanme(data_t$TEXT), wordVecs = NULL)
+
+  # Estimate category proportions
+  set.seed(2138) # Set a seed if you choose
+  readme.estimates <- readme(dfm = wordVec_summaries , labeledIndicator = data_t$TRAININGSET, categoryVec = data_t$TRUTH)
+
+
+  # Output proportions estimate
+  pred = readme.estimates$point_readme
+  pred = as.list(pred)
+  print(pred)
+  # print(class(pred))
+  
+  # Compare to the truth
+  true = table(data_t$TRUTH[data_t$TRAININGSET == 0])/sum(table((data_t$TRUTH[data_t$TRAININGSET == 0])))
+  print(true)
+  
+  i = i+1
+  print(i)
+}
+
+

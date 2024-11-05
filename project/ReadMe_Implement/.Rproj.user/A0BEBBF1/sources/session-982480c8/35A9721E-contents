@@ -1,0 +1,6 @@
+devtools::install_github("iqss-research/readme-software/readme")
+
+devtools::install_github("rstudio/tensorflow")
+
+library(tensorflow)
+install_tensorflow()
