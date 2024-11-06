@@ -196,7 +196,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--run',
                         choices=['tubular', 'textual', 'sota_qot'],
-                        default='blue',
+                        default='textual',
                         help='Choose experiment')
     args = parser.parse_args()
     if args.run == 'sota_qot':
