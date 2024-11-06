@@ -112,7 +112,7 @@ def experiment(dataset, classifier, quantifier, tsa, random_state):
 
 
 def qot(data_format):
-    if data_format == 'tabular':
+    if data_format == 'numeral':
         dataset_set = tubular_data
         clsfiers = classifiers_set1
     else:
@@ -195,7 +195,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--run',
-                        choices=['tubular', 'textual', 'sota_qot'],
+                        choices=['numeral', 'textual', 'sota_qot'],
                         default='textual',
                         help='Choose experiment')
     args = parser.parse_args()
