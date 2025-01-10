@@ -36,7 +36,7 @@ for (s in seeds) {
     i = 0
     repeat {
       print(paste("...................val", i, "..................."))
-      file_name = paste0(format(i), ".csv")  # 构建文件名
+      file_name = paste0(format(i), ".csv")  # Build file name
       
       relative_path <- file.path("data", dataname, "val", file_name)
       
@@ -55,7 +55,7 @@ for (s in seeds) {
       
       # Output proportions estimate
       val_pred = readme.estimates$point_readme
-      val_preds <- rbind(val_preds, val_pred)  # 将新行添加到DataFrame中
+      val_preds <- rbind(val_preds, val_pred)  # Adding new rows to a DataFrame
       # print(val_pred)
       
       # # Compare to the truth
@@ -72,7 +72,7 @@ for (s in seeds) {
     j = 0
     repeat {
       print(paste("...................test", j, "..................."))
-      file_name = paste0(format(j), ".csv")  # 构建文件名
+      file_name = paste0(format(j), ".csv")  # Build file name
       
       relative_path <- file.path("data", dataname, "test", file_name)
       
@@ -91,7 +91,7 @@ for (s in seeds) {
       
       # Output proportions estimate
       test_pred = readme.estimates$point_readme
-      test_preds <- rbind(test_preds, test_pred)  # 将新行添加到DataFrame中
+      test_preds <- rbind(test_preds, test_pred)  # Adding new rows to a DataFrame
       # print(test_preds)
       
       # # Compare to the truth

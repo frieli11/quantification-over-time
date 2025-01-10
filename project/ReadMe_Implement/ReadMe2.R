@@ -1,7 +1,7 @@
 library(readme)
 library(tensorflow)
 
-# 定义一个函数
+
 readme2 <- function(data_t, seed_) {
 # readme2 <- function() {
   
@@ -27,9 +27,9 @@ readme2 <- function(data_t, seed_) {
 }
 
 
-# # 使用函数
+
 # dataname = 'global_covid19_tweets'
-# file_name = paste0(format(0), ".csv")  # 构建文件名
+# file_name = paste0(format(0), ".csv")
 # relative_path = file.path("data", dataname, file_name)
 # 
 # datat = read.csv("0.csv")
